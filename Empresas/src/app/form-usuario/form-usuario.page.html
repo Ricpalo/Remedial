@@ -1,0 +1,35 @@
+<ion-content color="light">
+  <form (ngSubmit)="registrarUsuario();">
+    <h1 class="ion-text-center">Crear Cuenta</h1>
+  
+    <ion-button color="danger" expand="block" (click)="closeModal();" >Cancelar</ion-button>
+    <ion-button expand="block" type="submit">Registrar</ion-button>
+  
+    <ion-input placeholder="Nombre(s)" [(ngModel)]="usuario.nombres" name="nombres"></ion-input>
+    <p class="ion-text-center error">{{errores.nombres}}</p>
+    <ion-input placeholder="Apellidos" [(ngModel)]="usuario.apellidos" name="apellidos"></ion-input>
+    <p class="ion-text-center error">{{errores.apellidos}}</p>
+    <ion-input placeholder="E-mail" [(ngModel)]="usuario.email" name="email"></ion-input>
+    <p class="ion-text-center error">{{errores.email}}</p>
+
+    <ion-item>
+      <ion-label>Genero</ion-label>
+      <ion-select placeholder="Select One" name="genero" [(ngModel)]="usuario.genero">
+        <ion-select-option value="F">Femenino</ion-select-option>
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="X">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="ion-text-center error">{{errores.genero}}</p>
+  
+    <ion-input placeholder="Nombre de la empresa" [(ngModel)]="empresa.nombre" name="nombre"></ion-input>
+    <p class="ion-text-center error">{{errores.nombre}}</p>
+    <ion-input placeholder="Telefono de la empresa" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
+    <p class="ion-text-center error">{{errores.telefono}}</p>
+  
+    <ion-input placeholder="Password" type="password" [(ngModel)]="usuario.password" name="password"></ion-input>
+    <p class="ion-text-center error">{{errores.password}}</p>
+    <ion-input placeholder="Repetir Password" type="password" [(ngModel)]="usuario.password_confirm" name="password"></ion-input>
+    <p class="ion-text-center error">{{errores.password_confirm}}</p>
+  </form>
+</ion-content>

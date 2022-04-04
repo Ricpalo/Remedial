@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/empleados"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Agregar Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addEmpleado();">
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" [(ngModel)]="empleado.nombre" name="nombre" placeholder="Escribe el nombre"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="errores.nombre != ''">
+      <ion-text color="danger">
+        <h4>{{errores.nombre}}</h4>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Apellidos: </ion-label>
+      <ion-input type="text" [(ngModel)]="empleado.apellidos" name="apellidos" placeholder="Escribe los apellidos"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="errores.apellidos != ''">
+      <ion-text color="danger">
+        <h4>{{errores.apellidos}}</h4>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input type="text" [(ngModel)]="empleado.email" name="email" placeholder="Escribe los email"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="errores.email != ''">
+      <ion-text color="danger">
+        <h4>{{errores.email}}</h4>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genero</ion-label>
+      <ion-select placeholder="Select One" name="genero" [(ngModel)]="empleado.genero">
+        <ion-select-option value="F">Femenino</ion-select-option>
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="X">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="ion-text-center error">{{errores.genero}}</p>
+
+    <ion-item *ngIf="errores.genero != ''">
+      <ion-text color="danger">
+        <h4>{{errores.genero}}</h4>
+      </ion-text>
+    </ion-item>
+
+    <ion-button type="submit" color="medium" expand="block">Registrar</ion-button>
+  </form>
+</ion-content>

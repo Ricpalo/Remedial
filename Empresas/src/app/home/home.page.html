@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      Bienvenido
+    <ion-buttons slot="end">
+        <ion-button (click)="cerrar_sesion();">Cerrar Sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="session.fk_empresa == null">
+  <ion-button routerLink="/empleados" expand="block">Empleados</ion-button>
+</ion-content>
+
+<ion-content *ngIf="session.fk_empresa != null">
+  <ion-button routerLink="/add-asistencia" expand="block">Marcar Asistencia</ion-button>
+  <ion-button routerLink="/historial" expand="block">Historial de Asistencias</ion-button>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/asistencias"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Containers Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="addAsistencia();">
+    <ion-item>
+      <ion-label>Tipo de Asistencia</ion-label>
+      <ion-select placeholder="Select One" name="tipo" [(ngModel)]="asistencia.tipo_asistencia">
+        <ion-select-option value="Entrada">Entrada</ion-select-option>
+        <ion-select-option value="Salida">Salida</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="ion-text-center error">{{errores.tipo_asistencia}}</p>
+
+    <ion-item *ngIf="errores.tipo_asistencia != ''">
+      <ion-text color="danger">
+        <h4>{{errores.tipo_asistencia}}</h4>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-button color="primary" expand="block" (click)="seleccionar_icono();">Select picture</ion-button>
+    </ion-item>
+
+    <ion-item *ngIf="icono!=null">
+      <ion-img [src]="icono"></ion-img>
+    </ion-item>
+  
+  <center>
+    <ion-button type="submit" color="medium"  [disabled]="icono==null">Agregar Asistencia</ion-button>
+  </center>
+
+  </form>
+
+</ion-content>

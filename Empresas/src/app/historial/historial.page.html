@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Asistencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="ion-text-center">Lista general de Asistencias</h1>
+  <ion-list>
+    <ion-item *ngFor="let asistencia of asistencias">
+      <h3>{{asistencia.fecha_asistencia}} {{asistencia.tipo_asistencia}}</h3>      
+    </ion-item>
+  </ion-list>
+</ion-content>

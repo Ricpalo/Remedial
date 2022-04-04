@@ -1,0 +1,24 @@
+<ion-content class="ion-padding ion-text-center" color="danger">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="4" size-lg="6" size-md="8" size-sm="12">
+        <form (ngSubmit)="iniciar_sesion();"> 
+          <img src="./assets/icon/perro.jpeg" class="rounded" />
+          <div class="title">
+            <h4>Administrador de Empleados</h4>
+          </div>
+          <ion-input placeholder="Email" class="primary-input" [(ngModel)]="usuario.pEmail" name="pEmail"></ion-input>
+          <ion-input placeholder="Password" type="password" class="primary-input" [(ngModel)]="usuario.pPassword" name="pPassword"></ion-input>
+
+          <div class="ion-margin-top">
+            <ion-button expand="block" type="submit">Entrar</ion-button>
+          </div>
+          <div class="ion-margin-top ion-text-center forget">
+            <a class="link-a" (click)="presentModal();">¿No tienes cuenta? <b>¡Registrate!</b></a>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

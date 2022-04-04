@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/empleados"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Actualizar Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="updateEmpleado();">
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" [(ngModel)]="empleado.nombre_usuario" name="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="errores.nombre_usuario != ''">
+      <ion-text color="danger">
+        {{errores.nombre_usuario}}
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Apellidos: </ion-label>
+      <ion-input type="text" [(ngModel)]="empleado.apellidos_usuario" name="apellidos_usuario"></ion-input>
+    </ion-item> 
+
+    <ion-item *ngIf="errores.apellidos_usuario != ''">
+      <ion-text color="danger">
+        {{errores.apellidos_usuario}}
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genero</ion-label>
+      <ion-select placeholder="Select One" name="genero" [(ngModel)]="empleado.genero_usuario">
+        <ion-select-option value="F">Femenino</ion-select-option>
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="X">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="ion-text-center error">{{errores.genero}}</p>
+
+    <ion-item *ngIf="errores.genero_usuario != ''">
+      <ion-text color="danger">
+        {{errores.genero_usuario}}
+      </ion-text>
+    </ion-item>
+
+    <ion-button type="submit" color="medium" expand="block">Actualizar</ion-button>
+  </form>
+</ion-content>
+ 
